@@ -1,9 +1,14 @@
 <h1>Listado de Marcas</h1>
 <div class="row">
   <div class="col-lg-4">
-    <label for="busqueda">Buscar:</label>
-    <input type="text" ng-model="busqueda" class="form-control" id="busqueda" placeholder="Nombre de la marca">
+    <input type="text" ng-model="busqueda" class="form-control" id="busqueda" placeholder="Buscar marca">
     <br />
+  </div>
+  <div class="col-lg-3">
+    <a href="#/marca/crear" class="btn btn-default">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      Agregar nueva marca
+    </a>
   </div>
 </div>
 <div class="row">
@@ -39,7 +44,6 @@
           <td>
             <a href="#/marca/ver/{{ marca.id }}" class="btn"><i class="fa fa-eye" aria-hidden="true"></i></a>
             <a href="#/marca/editar/{{ marca.id }}" class="btn"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-            <a href="#/marca/eliminar/{{ marca.id }}" class="btn"><i class="fa fa-trash" aria-hidden="true"></i></a>
           </td>
         </tr>
       </tbody>

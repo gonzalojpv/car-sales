@@ -13,6 +13,10 @@ app.config( function($routeProvider){
 			templateUrl: 'app/marcas/simple.html',
 			controller: 'marcasCtrl'
 		})
+    .when('/marca/:accion',{
+			templateUrl: 'app/marcas/simple.html',
+			controller: 'marcasCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

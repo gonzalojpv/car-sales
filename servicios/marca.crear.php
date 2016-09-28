@@ -1,6 +1,6 @@
 <?php
 // Incluir la clase de base de datos
-include_once("../classes/class.Database.php");
+include_once("clases/class.Database.php");
 
 $postdata = file_get_contents("php://input");
 
@@ -8,13 +8,12 @@ $request = json_decode($postdata);
 $request =  (array) $request;
 
 
-$request['nombre'] = strtoupper($request['nombre']);
+$request['marca'] = strtoupper($request['marca']);
 
 
-$sql = "INSERT INTO alumnos(nombre, telefono, direccion) 
-		VALUES ( '". $request['nombre'] ."',
-				 '".$request['telefono']."',
-				 '".$request['direccion']."' )";
+$sql = "INSERT INTO marcas(marca, descripcion )
+		VALUES ( '". $request['marca'] ."',
+				 '".$request['descripcion']."' )";
 
 
 $Hecho = Database::ejecutar_idu($sql);

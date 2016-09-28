@@ -7,10 +7,10 @@ app.controller( 'marcasCtrl', [ '$scope', '$http', '$routeParams', function( $sc
 
   $scope.setActive("mMarcas");
 
-  $scope.marcas   = {};
-  $scope.marca = {};
-  $scope.posicion = 5;
-  $scope.mensaje = '';
+  $scope.marcas    = {};
+  $scope.marca     = {};
+  $scope.posicion  = 5;
+  $scope.mensaje   = '';
   $scope.formTitle = accion;
 
   switch ( accion ) {
@@ -19,6 +19,8 @@ app.controller( 'marcasCtrl', [ '$scope', '$http', '$routeParams', function( $sc
       $http.get( 'servicios/marca.get.php?c=' + id ).success( function( response ) {
         $scope.marca = response;
       } );
+      break;
+    case 'crear':
       break;
     default:
       $http.get( 'servicios/marcas.listado.php' ).success( function( response ) {
@@ -40,11 +42,15 @@ app.controller( 'marcasCtrl', [ '$scope', '$http', '$routeParams', function( $sc
 		}
 	};
 
+  $scope.esAccion = function( accion ) {
+    return ( accion == $scope.formTitle? true : false );
+  };
+
   $scope.guardarMarca = function() {
 
     accion = ( 'editar' == accion? 'guardar' : accion );
 
-    $http.post( 'servicios/alumno.' + accion + '.php', $scope.marca ).success( function( response ) {
+    $http.post( 'servicios/marca.' + accion + '.php', $scope.marca ).success( function( response ) {
       $scope.mensaje = response.mensaje;
 
       if ( response.err === false ) {
@@ -56,5 +62,20 @@ app.controller( 'marcasCtrl', [ '$scope', '$http', '$routeParams', function( $sc
       }
     } );
   };
+
+  $scope.eliminarMarca = function() {
+    $http.post( 'servicios/marca.eliminar.php', $scope.marca ).success( function( response ) {
+      $scope.mensaje = response.mensaje;
+
+      if ( response.err === false ) {
+        console.log( response );
+        setTimeout( function() {
+          $scope.mensaje = '';
+          $scope.$apply();
+          window.location = '#/marcas';
+        }, 3200 )
+      }
+    } );
+  }
 
 } ] );

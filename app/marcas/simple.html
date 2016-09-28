@@ -1,5 +1,5 @@
 <div class="alert alert-success" role="alert" ng-show="mensaje">{{ mensaje }}</div>
-<h1>{{ formTitle | uppercase }} </h1>
+<h1>{{ formTitle | uppercase }}</h1>
 <div class="row">
   <div class="col-lg-8">
     <form ng-submit="guardarMarca()">
@@ -7,17 +7,21 @@
         <label>Marca:</label>
         <input type="text" ng-model="marca.marca" class="form-control" placeholder="Nombre de la Marca" ng-disabled="{{ (( 'ver' == formTitle ) && ( true) || ( false)) }} " required>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-if="!esAccion('crear');">
         <label for="exampleInputFile">ID</label>
-        <input type="text" ng-model="marca.id" disabled>
+        <input type="text" class="form-control" ng-model="marca.id" disabled>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Descripción</label>
         <textarea class="form-control" ng-model="marca.descripcion" rows="3" ng-disabled="{{ (( 'ver' == formTitle ) && ( true) || ( false)) }} " required></textarea>
       </div>
-      <button type="submit" class="btn btn-default" ng-disabled="{{ (( 'ver' == formTitle ) && ( true) || ( false)) }} ">
+      <button type="submit" class="btn btn-info" ng-disabled="{{ (( 'ver' == formTitle ) && ( true) || ( false)) }} ">
         <i class="fa fa-floppy-o" aria-hidden="true"></i>
         Guardar
+      </button>
+      <button type="button" class="btn btn-danger" ng-disabled="{{ (( 'ver' == formTitle ) && ( true) || ( false)) }} " ng-click="eliminarMarca();">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+        Eliminar
       </button>
     </form>
   </div>
