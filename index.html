@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="carsales">
+  <head>
+    <meta charset="utf-8">
+    <title>Car Sales</title>
+    <!-- Incluir Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Estilo personalizado -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+    <!-- Incluir AngularJS -->
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-route.min.js"></script>
+    <script src="vendor/ui-utils.min.js"></script>
+
+    <script src="app/carsales.js"></script>
+    <script src="app/config.js"></script>
+
+    <!-- Controladores de páginas -->
+    <script src="app/inicio/inicioCtrl.js"></script>
+    <script src="app/marcas/marcasCtrl.js"></script>
+
+  </head>
+  <body ng-controller="MainCtrl as main">
+    <div class="app-wrap">
+      <div ng-include="menuSuperior"></div>
+      <div class="container">
+        <!-- La pagina principal ira aquí -->
+          <div ng-view></div>
+        </div><!-- /.container -->
+    </div>
+  </body>
+</html>

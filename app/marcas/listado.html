@@ -1,0 +1,60 @@
+<h1>Listado de Marcas</h1>
+<div class="row">
+  <div class="col-lg-4">
+    <label for="busqueda">Buscar:</label>
+    <input type="text" ng-model="busqueda" class="form-control" id="busqueda" placeholder="Nombre de la marca">
+    <br />
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th>
+            #
+          </th>
+          <th>
+            Marca
+          </th>
+          <th>
+            Descripción
+          </th>
+          <th>
+            Acción
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="marca in marcas | limitTo: posicion | limitTo: -5 | filter:busqueda">
+          <td>
+            {{ marca.id }}
+          </td>
+          <td>
+            {{ marca.marca }}
+          </td>
+          <td>
+            {{ marca.descripcion }}
+          </td>
+          <td>
+            <a href="#/marca/ver/{{ marca.id }}" class="btn"><i class="fa fa-eye" aria-hidden="true"></i></a>
+            <a href="#/marca/editar/{{ marca.id }}" class="btn"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+            <a href="#/marca/eliminar/{{ marca.id }}" class="btn"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <button type="button" class="btn btn-primary" ng-click="anteriores()">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      Anterior
+    </button>
+    <button type="button" class="btn btn-primary" ng-click="siguiente()">
+      Siguiente
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
