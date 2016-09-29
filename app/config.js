@@ -17,6 +17,10 @@ app.config( function($routeProvider){
 			templateUrl: 'app/marcas/simple.html',
 			controller: 'marcasCtrl'
 		})
+		.when('/modelos',{
+			templateUrl: 'app/modelos/listado.html',
+			controller: 'modelosCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
