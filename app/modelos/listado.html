@@ -1,9 +1,12 @@
 <h1>Listado de Modelos</h1>
+<a href="#/modelo/crear" class="btn btn-primary">Crear</a>
+<hr>
+
 <div class="row">
-  <div class="col-lg-4">
+  <div class="col-sm-6">
     <input type="text" ng-model="busqueda" class="form-control" id="busqueda" placeholder="Buscar modelo">
   </div>
-  <div class="col-lg-2">
+  <div class="col-sm-4">
     <select class="form-control" ng-model="marca.marca_id" ng-options="marca.id as marca.marca for marca in marcas" >
       <option value="">Seleciona</option>
     </select>

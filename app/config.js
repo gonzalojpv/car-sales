@@ -21,6 +21,14 @@ app.config( function($routeProvider){
 			templateUrl: 'app/modelos/listado.html',
 			controller: 'modelosCtrl'
 		})
+		.when('/modelos/:accion/:id',{
+			templateUrl: 'app/modelos/listado.html',
+			controller: 'modelosCtrl'
+		})
+		.when('/modelo/:accion',{
+			templateUrl: 'app/modelos/create.html',
+			controller: 'modelosCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
